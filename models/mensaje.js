@@ -22,7 +22,7 @@ const mensajeSchema = new Schema({
   fechaCreacion: {
     type: Date,
     default: Date.now,
-    expires: 86400 // 24h en segundos
+    expires: 10 // 24h en segundos
   }
 });
 
