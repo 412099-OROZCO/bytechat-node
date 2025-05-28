@@ -34,8 +34,12 @@ router.post('/', async (req, res) => {
       fechaHora: new Date().toLocaleTimeString('es-AR', {
         hour: '2-digit',
         minute: '2-digit'
-      }) // Generamos hora en formato HH:mm con zona horaria argentina
+      }),
+      fechaCreacion: new Date() // Aseguramos que el TTL se active correctamente
     });
+
+    // Log para verificar el contenido del mensaje
+    console.log("📩 Nuevo mensaje recibido:", nuevo);
 
     // Guardamos el mensaje en MongoDB
     await nuevo.save();
@@ -43,10 +47,12 @@ router.post('/', async (req, res) => {
     // Respondemos con un mensaje de éxito
     res.json({ mensaje: 'Guardado con éxito' });
   } catch (err) {
-    res.status(500).json({ error: err.message }); // Enviamos el error en caso de fallo
+    console.error("❌ Error al guardar mensaje:", err); // Log en caso de error
+    res.status(500).json({ error: err.message }); // Enviamos el error al frontend
   }
 });
 
 // Exportamos el router para usarlo en el archivo index.js
 module.exports = router;
+
 
