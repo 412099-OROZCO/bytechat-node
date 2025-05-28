@@ -143,6 +143,18 @@ footer {
   animation: fadeIn 0.4s ease-out;
 }
 
+/* Logo personalizado */
+.logo-bytechat {
+  width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 0 6px rgba(0, 230, 255, 0.4));
+}
+
+
 @keyframes fadeIn {
   from { transform: scale(0.95); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
