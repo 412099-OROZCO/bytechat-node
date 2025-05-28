@@ -13,7 +13,7 @@ const usuarioSchema = new Schema({
   fechaConexion: {
     type: Date,
     default: Date.now, // Se asigna automáticamente al momento de crear o actualizar
-    //expires: 60         // El documento se elimina después de 60 segundos sin actividad
+    expires: 60         // El documento se elimina después de 60 segundos sin actividad
   }
 });
 
